@@ -1,5 +1,6 @@
 package config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import spring.*;
@@ -17,20 +18,25 @@ public class AppCtx {
     }
     @Bean
     public ChangePasswordService changePwdSvc(){
-        ChangePasswordService pwdSvc =
-                new ChangePasswordService();
-        pwdSvc.setMemberDao(memberDao());
+        ChangePasswordService pwdSvc = new ChangePasswordService();
         return pwdSvc;
     }
+//    @Bean
+//    public MemberPrinter memberPrinter(){
+//        return new MemberPrinter();
+//    }
     @Bean
-    public MemberPrinter memberPrinter(){
+    @Qualifier("printer")
+    public MemberPrinter memberPrinter1(){
+        return new MemberPrinter();
+    }
+    @Bean
+    public MemberPrinter memberPrinter2(){
         return new MemberPrinter();
     }
     @Bean
     public MemberInfoPrinter infoPrinter(){
         MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
-        infoPrinter.setMemberDao(memberDao());
-        infoPrinter.setPrinter(memberPrinter());
         return infoPrinter;
     }
     @Bean

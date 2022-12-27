@@ -1,5 +1,7 @@
 package spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class MemberInfoPrinter {
 
     private MemberDao memberDao;
@@ -14,12 +16,12 @@ public class MemberInfoPrinter {
         printer.print(member);
         System.out.println();
     }
-
+    @Autowired
     public void setMemberDao(MemberDao memberDao){
                 //세터 메서드 작성
         this.memberDao = memberDao;
     }
-
+    @Autowired
     public void setPrinter(MemberPrinter printer){
                 //세터 메서드 작성
         this.printer =printer;

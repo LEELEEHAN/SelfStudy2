@@ -24,4 +24,9 @@ public class MemberDao {
     public void update(Member member){
         map.put(member.getEmail(),member);
     }
+
+    public Collection<Member> selectByAll() {
+        Collection col = null;
+        return col;
+    }
 }
