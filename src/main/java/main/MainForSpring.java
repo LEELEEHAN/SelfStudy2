@@ -7,7 +7,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import spring.*;
 
 import java.io.BufferedReader;
-import java.io.IOError;
 import java.io.IOException;
 
 public class MainForSpring {
@@ -22,8 +21,51 @@ public class MainForSpring {
         while (true){
             System.out.println("명령어 입력");
             String command = reader.readLine();
+            if(command.equals("exit")){
+                System.out.println("종료");
+                break;
+            }
+            if(command.startsWith("new ")){
+                processNewCommand(command.split(" "));
+                continue;
+            } else if(command.startsWith("change")){
+                processChangeCommand(command.split(" "));
+                continue;
+            } else if(command.equals("list")){
+                processListCommand();
+                continue;
+            } else if (command.equals("info ")){
+                processInfoCommand(command.split(" "));
+                continue;
+            } else if (command.equals("version")){
+                processVersionCommand();
+                continue;
+            }
             printHelp();
         }
+    }
+
+    private static void processVersionCommand() {
+        VersionPrinter versionPrinter =
+                ctx.getBean("versionPrinter",VersionPrinter.class);
+        versionPrinter.print();
+
+    }
+
+    private static void processInfoCommand(String[] arg) {
+        if(arg.length!=2){
+            printHelp();
+            return;
+        }
+        MemberInfoPrinter infoPrinter =
+                ctx.getBean("infoPrinter",MemberInfoPrinter.class);
+        infoPrinter.printMemberInfo(arg[1]);
+    }
+
+    private static void processListCommand() {
+        MemberListPrinter listPrinter=
+                ctx.getBean("listPrinter",MemberListPrinter.class);
+        listPrinter.printAll();
     }
 
     private static void processNewCommand(String[] arg){
