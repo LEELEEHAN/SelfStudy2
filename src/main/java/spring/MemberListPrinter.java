@@ -18,10 +18,10 @@ public class MemberListPrinter {
         this.memberDao = memberDao;
     }
     @Autowired
-    @Qualifier("printer")
     public void setMemberPrinter(MemberPrinter printer){
         this.printer = printer;
     }
+
     public void printAll(){
         Collection<Member> members = memberDao.selectByAll();
         members.forEach(m-> printer.print(m));

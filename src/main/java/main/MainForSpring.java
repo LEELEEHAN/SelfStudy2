@@ -1,13 +1,13 @@
 package main;
 
 import config.AppCtx;
-import jdk.internal.org.jline.utils.InputStreamReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class MainForSpring {
 
