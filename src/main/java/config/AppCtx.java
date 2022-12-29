@@ -35,4 +35,12 @@ public class AppCtx {
         versionPrinter.setMinorVersion(0);
         return new VersionPrinter();
     }
+    @Bean
+    public MemberPrinter memberPrinter1(){
+        return new MemberPrinter();
+    }
+    @Bean
+    public MemberSummaryPrinter memberPrinter2(){
+        return new MemberSummaryPrinter();
+    }
 }
