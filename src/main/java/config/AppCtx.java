@@ -36,10 +36,12 @@ public class AppCtx {
         return new VersionPrinter();
     }
     @Bean
+    @Qualifier("printer")
     public MemberPrinter memberPrinter1(){
         return new MemberPrinter();
     }
     @Bean
+    @Qualifier("summaryPrinter")
     public MemberSummaryPrinter memberPrinter2(){
         return new MemberSummaryPrinter();
     }

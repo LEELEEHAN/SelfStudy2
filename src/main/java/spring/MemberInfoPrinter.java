@@ -1,6 +1,7 @@
 package spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class MemberInfoPrinter {
 
@@ -22,8 +23,10 @@ public class MemberInfoPrinter {
         this.memberDao = memberDao;
     }
     @Autowired
+    @Qualifier("printer")
     public void setPrinter(MemberPrinter printer){
                 //세터 메서드 작성
         this.printer =printer;
     }
+
 }
