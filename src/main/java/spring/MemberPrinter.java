@@ -1,5 +1,6 @@
 package spring;
 
+//import org.springframework.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.format.DateTimeFormatter;
@@ -34,6 +35,12 @@ public class MemberPrinter {
         } else {
             this.dateTimeFormatter = null;
         }
+    }
+    */
+    /* @Nulldable 을 사용하는 방법
+    @Autowired
+    public void setDateTimeFormatter(@Nullable DateTimeFormatter dateTimeFormatter){
+        this.dateTimeFormatter =dateTimeFormatter;
     }
     */
 }
