@@ -21,13 +21,13 @@ public class MemberPrinter {
 
         }
     }
-    @Autowired
+    @Autowired(required =false)//필수 자동주입 끔
     public void setDateTimeFormatter(DateTimeFormatter dateTimeFormatter){
         this.dateTimeFormatter =dateTimeFormatter;
     }
 
     /*스프링 5 자바8 부터 지원하는 Optional이용
-    @Autowired(required =false)
+    @Autowired
     public void setDateTimeFormatter(Optional<DateTimeFormatter> formatterOpt){
         if(formatterOpt.isPresent()){
             this.dateTimeFormatter = formatterOpt.get();
