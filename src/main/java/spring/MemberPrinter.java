@@ -9,6 +9,10 @@ public class MemberPrinter {
 
     private DateTimeFormatter dateTimeFormatter;
 
+    public MemberPrinter(){
+        dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월 DD일");
+    }
+
     public void print(Member member){
         if(dateTimeFormatter ==null){
             System.out.printf(
