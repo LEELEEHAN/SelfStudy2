@@ -31,14 +31,14 @@ public class MainForSpring {
             } else if(command.startsWith("change")){
                 processChangeCommand(command.split(" "));
                 continue;
-            } else if(command.equals("list")){
+            } else if (command.equals("version")){
+                processVersionCommand();
+                continue;
+            }else if(command.equals("list")){
                 processListCommand();
                 continue;
             } else if (command.equals("info ")){
                 processInfoCommand(command.split(" "));
-                continue;
-            } else if (command.equals("version")){
-                processVersionCommand();
                 continue;
             }
             printHelp();
